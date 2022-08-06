@@ -476,3 +476,4 @@ if(fullNotes){
 
 footerPosition();
 ANBtn.addEventListener("click", e=>noteAdder(e, '', false, 1, '', activeList, true));
+document.head.lastElementChild.setAttribute('href', window.matchMedia('(prefers-color-scheme: dark)').matches?'Pictures/Light Theme/HeaderFile.png':'Pictures/Dark Theme/HeaderFile.png');
