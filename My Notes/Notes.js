@@ -3,7 +3,7 @@ const noteBook = document.getElementById("notesContainer");
 const ANBtn = document.getElementById("addNote");
 const pinned = div();
 const nonPinned = div();
-const fullNotes = localStorage.getItem('Notes')!==undefined?JSON.parse(localStorage.getItem('Notes')).note:undefined;
+const fullNotes = localStorage.getItem('Notes')?JSON.parse(localStorage.getItem('Notes')).note:undefined;
 noteBook.append(pinned, nonPinned);
 nonPinned.style.display = pinned.style.display = 'inline';
 let NoteTop, NoteLeft, funcArr=[], activeList='Home', theme=JSON.parse(localStorage.getItem('Notes'))?.theme;
@@ -162,7 +162,7 @@ themeBtn.classList.add('button');
 
 const properties = ['--primary', '--secondary', '--primary-light', '--primary-lighter', '--text-color', '--button', '--copyImage', '--deleteImage', '--resizeImage', '--editImage', '--pinImage', '--pinnedImage']
 const dark = ['#101820', '#FEE715', '#1b2530', '#455d77', 'white', '#101820d7', 'url("Pictures/Dark Theme/copyIcon.png")', 'url("Pictures/Dark Theme/deleteIcon.png")', 'url("Pictures/Dark Theme/resizeIcon.png")', 'url("Pictures/Dark Theme/editIcon.png")', 'url("Pictures/Dark Theme/pinIcon.png")', 'url("Pictures/Dark Theme/pinnedIcon.png")']
-const light = ['rgb(235, 235, 235)', '#222f38', '#f2f2ed', 'lightgray', 'black', '#f2f2edd7', 'url("Pictures/Light Theme/copyIcon.png")', 'url("Pictures/Light Theme/deleteIcon.png")', 'url("Pictures/Light Theme/resizeIcon.png")', 'url("Pictures/Light Theme/editIcon.png")', 'url("Pictures/Light Theme/pinIcon.png")', 'url("Pictures/Light Theme/pinnedIcon.png")']
+const light = ['rgb(235, 235, 235)', '#222f38', '#f2f2ed', 'lightgray', 'black', '#d3d3cc', 'url("Pictures/Light Theme/copyIcon.png")', 'url("Pictures/Light Theme/deleteIcon.png")', 'url("Pictures/Light Theme/resizeIcon.png")', 'url("Pictures/Light Theme/editIcon.png")', 'url("Pictures/Light Theme/pinIcon.png")', 'url("Pictures/Light Theme/pinnedIcon.png")']
 
 const setTheme = e => {
   const root = document.querySelector(':root');
