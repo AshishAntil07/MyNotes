@@ -263,7 +263,7 @@ const updateLocalStorage = () => {
     note: {},
     theme: theme
   }, k, l, m=0, keys;
-  console.clear()
+
   for(k=0, keys=Object.keys(lists); k<keys.length; k++){
     for(l=0; l<lists[keys[k]].length; l++, m++){
       lists[keys[k]][l].firstChild.childNodes[2].value!==''?notes.note[`n${m+1}`] = [lists[keys[k]][l].firstChild.childNodes[2].value, lists[keys[k]][l].firstChild.pinned, lists[keys[k]][l].firstChild.size, lists[keys[k]][l].firstChild.NoteTitle, keys[k]]:0;
@@ -273,7 +273,7 @@ const updateLocalStorage = () => {
 }
 
 const textSaver = Note => {
-  Note.childNodes[3].innerHTML = Note.childNodes[2].value;
+  Note.childNodes[3].innerHTML = Note.childNodes[2].value.replaceAll('\n', '<br>').replaceAll(' ', '&nbsp;');
   Note.childNodes[2].style.display = 'none';
   Note.childNodes[3].style.display = 'block';
   Note.style.top = `${NoteTop}px`;
@@ -304,7 +304,7 @@ const textSaver = Note => {
 
 const editFunc = Note => {
   Note.childNodes[2].style.display = 'block';
-  Note.childNodes[3].style.display = 'none';
+  Note.childNodes[3].style.display = Note.childNodes[1].lastChild.style.display = 'none';
   NoteTop = Number(getComputedStyle(Note).top.replace('px', ''));
   NoteLeft = Number(getComputedStyle(Note).left.replace('px', ''));
   Note.style.top = `${NoteTop}px`;
@@ -345,18 +345,18 @@ const deleteFunc = Note => {
 
 let count=0;
 const resizeFunc = (Note, boxNo, container=false) => {
+  container?container.style.display='none':0;
   if(boxNo === 1){
     Note.parentElement.style.width = Note.style.width = '222.5px';
     Note.size = 1;
   }else if(boxNo === 2){
-    Note.parentElement.style.width = Note.style.width = '471.5px';
+    Note.parentElement.style.width = Note.style.width = window.innerWidth>471.5?'471.5px':window.innerWidth-50+'px';
     Note.size = 2;
   }else{
-    Note.parentElement.style.width = Note.style.width = '720.5px';
+    Note.parentElement.style.width = Note.style.width = window.innerWidth>720.5?'720.5px':window.innerWidth-50+'px';
     Note.size = 3;
   }
   setTimeout(e=>footerPosition(), 400)
-  container?container.style.display='none':0;
   updateLocalStorage();
 };
 
@@ -372,6 +372,13 @@ const pinFunc = Note => {
   if(!Note.pinned){
     Note.childNodes[1].childNodes[4].classList.add('Pinned');
     pinned.append(Note.parentElement);
+    lists[Note.list].every((elem, index) => {
+      if(!elem.firstChild.pinned){
+        lists[Note.list].splice(lists[Note.list].indexOf(Note.parentElement), 1)
+        lists[Note.list].splice(index-1, 0, Note.parentElement)
+        return false;
+      }
+    })
     Note.pinned = true;
     updateLocalStorage();
   }else{
@@ -389,6 +396,9 @@ function noteAdder(e, note, isPinned, size, title, list, mustPushed){
 
   const Note = div();
   Note.classList.add('Note')
+  Note.NoteTitle = title;
+  Note.size = size;
+  Note.list = list;
   Note.identity = totalNotes++;
   Note.pinned = isPinned;
   noteArea.append(Note)
@@ -447,15 +457,13 @@ function noteAdder(e, note, isPinned, size, title, list, mustPushed){
   const ReadOnlyDiv = div();
   ReadOnlyDiv.classList.add('noteText');
   note===''?null:ReadOnlyDiv.style.display='block';
-  ReadOnlyDiv.innerHTML=note;
+  ReadOnlyDiv.innerHTML=note.replaceAll('\n', '<br>').replaceAll(' ', '&nbsp;');
 
   const titleDiv = div();
   titleDiv.classList.add('noteTitle');
   titleDiv.innerHTML = title!==''?title:'Title';
 
   Note.append(titleDiv, operations, textArea, ReadOnlyDiv);
-  Note.NoteTitle = titleDiv.innerHTML;
-  Note.size = size;
   Note.listener = e=>textSaver(Note);
   !lists[list]? lists[list] = []:0;
   mustPushed && note===''? lists[list].unshift(noteArea): mustPushed? lists[list].push(noteArea):0;
