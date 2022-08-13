@@ -7,6 +7,7 @@ Here's an amazing clone of Google Keep for you to keep your notes.
   <li>Notes can be grouped by making lists.</li>
   <li>Light and dark themes are available.</li>
   <li>You can create, delete, edit, resize, pin and copy notes.</li>
+  <li>Renders whitespace and allows HTML in notes.</li>  
   <li>Provides a user-friendly interface.</li>
 </ul>
 
