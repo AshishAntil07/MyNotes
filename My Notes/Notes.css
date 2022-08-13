@@ -134,6 +134,7 @@ html{
   outline: none;
   box-sizing: border-box;
   padding-left: 20px;
+  padding-right: 5px;
   height: 20px;
   overflow: hidden;
   min-width: 150px;
@@ -201,7 +202,7 @@ html{
   padding: 5px;
   display: none;
   position: absolute;
-  z-index: 5;
+  z-index: 10;
   margin-top: -125px;
   background-color: var(--primary);
   border: 1px solid var(--secondary);
