@@ -470,14 +470,14 @@ html{
         `)
         listName.placeholder = 'Search Lists';
         listName.addEventListener('input', e=>searchList(listName.value))
-
+        
         const listCount = div();
         listCount.setAttribute('style', `
           font-size: 12px; color: gray;
           padding-top: 5px; text-align: right;
         `)
 
-
+        
         const listList = div();
         listList.classList.add('listList');
 
@@ -534,7 +534,7 @@ html{
         }
 
         searchList(false);
-
+        
         listBox.append(listName, listCount, listList);
         document.body.prepend(listBox);
         listName.focus();
@@ -545,9 +545,9 @@ html{
       themeBtn.classList.add('button');
 
       const properties = ['--primary', '--secondary', '--primary-light', '--primary-lighter', '--text-color', '--button', '--copyImage', '--deleteImage', '--resizeImage', '--editImage', '--pinImage', '--pinnedImage']
-      const dark = ['#101820', '#FEE715', '#1b2530', '#455d77', 'white', '#101820d7', 'url("My Notes/Pictures/Dark Theme/copyIcon.png")', 'url("My Notes/Pictures/Dark Theme/deleteIcon.png")', 'url("My Notes/Pictures/Dark Theme/resizeIcon.png")', 'url("My Notes/Pictures/Dark Theme/editIcon.png")', 'url("My Notes/Pictures/Dark Theme/pinIcon.png")', 'url("My Notes/Pictures/Dark Theme/pinnedIcon.png")']
-      const light = ['rgb(235, 235, 235)', '#222f38', '#f2f2ed', 'lightgray', 'black', '#d3d3cc', 'url("My Notes/Pictures/Light Theme/copyIcon.png")', 'url("My Notes/Pictures/Light Theme/deleteIcon.png")', 'url("My Notes/Pictures/Light Theme/resizeIcon.png")', 'url("My Notes/Pictures/Light Theme/editIcon.png")', 'url("My Notes/Pictures/Light Theme/pinIcon.png")', 'url("My Notes/Pictures/Light Theme/pinnedIcon.png")']
- 
+      const dark = ['#101820', '#FEE715', '#1b2530', '#455d77', 'white', '#101820d7', 'url("My Notes/Pictures/Dark Theme/CopyIcon.png")', 'url("My Notes/Pictures/Dark Theme/DeleteIcon.png")', 'url("My Notes/Pictures/Dark Theme/ResizeIcon.png")', 'url("My Notes/Pictures/Dark Theme/EditIcon.png")', 'url("My Notes/Pictures/Dark Theme/PinIcon.png")', 'url("My Notes/Pictures/Dark Theme/PinnedIcon.png")']
+      const light = ['rgb(235, 235, 235)', '#222f38', '#f2f2ed', 'lightgray', 'black', '#d3d3cc', 'url("My Notes/Pictures/Light Theme/CopyIcon.png")', 'url("My Notes/Pictures/Light Theme/DeleteIcon.png")', 'url("My Notes/Pictures/Light Theme/ResizeIcon.png")', 'url("My Notes/Pictures/Light Theme/EditIcon.png")', 'url("My Notes/Pictures/Light Theme/PinIcon.png")', 'url("My Notes/Pictures/Light Theme/PinnedIcon.png")']
+
       const setTheme = e => {
         const root = document.querySelector(':root');
         for(let w = 0; w<properties.length; w++){
@@ -745,7 +745,7 @@ html{
       };
 
       const copyFunc = Note => {
-        navigator.clipboard.writeText(Note.childNodes[2].innerHTML);
+        navigator.clipboard.writeText(Note.childNodes[2].value);
         document.querySelector('.message').style.display = 'block';
         setTimeout(()=>{
           document.querySelector('.message').style.display = 'none';
@@ -786,10 +786,10 @@ html{
         Note.identity = totalNotes++;
         Note.pinned = isPinned;
         noteArea.append(Note)
-
+        
         const operations = div();
         operations.classList.add('operations');
-
+        
         const deleteBtn = div();
         deleteBtn.classList.add('Delete')
         deleteBtn.title = 'Delete this note.';
