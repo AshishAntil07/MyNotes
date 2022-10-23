@@ -868,7 +868,7 @@
 
       footerPosition();
       ANBtn.addEventListener("click", e=>noteAdder(e, '', false, 1, '', activeList, true));
-      document.head.lastElementChild.setAttribute('href', window.matchMedia('(prefers-color-scheme: dark)').matches?'My Notes/Pictures/Light Theme/HeaderFile.png':'My Notes/Pictures/Dark Theme/HeaderFile.png');
+      document.head.querySelector('link[rel="shortcut icon"]').setAttribute('href', window.matchMedia('(prefers-color-scheme: dark)').matches?'My Notes/Pictures/Light Theme/HeaderFile.png':'My Notes/Pictures/Dark Theme/HeaderFile.png');
     </script>
   </body>
 </html>
