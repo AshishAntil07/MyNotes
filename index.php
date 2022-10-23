@@ -545,15 +545,15 @@ html{
       themeBtn.classList.add('button');
 
       const properties = ['--primary', '--secondary', '--primary-light', '--primary-lighter', '--text-color', '--button', '--copyImage', '--deleteImage', '--resizeImage', '--editImage', '--pinImage', '--pinnedImage']
-      const dark = ['#101820', '#FEE715', '#1b2530', '#455d77', 'white', '#101820d7', 'url("MyNotes/Pictures/Dark Theme/copyIcon.png")', 'url("MyNotes/Pictures/Dark Theme/deleteIcon.png")', 'url("MyNotes/Pictures/Dark Theme/resizeIcon.png")', 'url("MyNotes/Pictures/Dark Theme/editIcon.png")', 'url("MyNotes/Pictures/Dark Theme/pinIcon.png")', 'url("MyNotes/Pictures/Dark Theme/pinnedIcon.png")']
-      const light = ['rgb(235, 235, 235)', '#222f38', '#f2f2ed', 'lightgray', 'black', '#d3d3cc', 'url("MyNotes/Pictures/Light Theme/copyIcon.png")', 'url("MyNotes/Pictures/Light Theme/deleteIcon.png")', 'url("MyNotes/Pictures/Light Theme/resizeIcon.png")', 'url("MyNotes/Pictures/Light Theme/editIcon.png")', 'url("MyNotes/Pictures/Light Theme/pinIcon.png")', 'url("MyNotes/Pictures/Light Theme/pinnedIcon.png")']
-
+      const dark = ['#101820', '#FEE715', '#1b2530', '#455d77', 'white', '#101820d7', 'url("My Notes/Pictures/Dark Theme/copyIcon.png")', 'url("My Notes/Pictures/Dark Theme/deleteIcon.png")', 'url("My Notes/Pictures/Dark Theme/resizeIcon.png")', 'url("My Notes/Pictures/Dark Theme/editIcon.png")', 'url("My Notes/Pictures/Dark Theme/pinIcon.png")', 'url("My Notes/Pictures/Dark Theme/pinnedIcon.png")']
+      const light = ['rgb(235, 235, 235)', '#222f38', '#f2f2ed', 'lightgray', 'black', '#d3d3cc', 'url("My Notes/Pictures/Light Theme/copyIcon.png")', 'url("My Notes/Pictures/Light Theme/deleteIcon.png")', 'url("My Notes/Pictures/Light Theme/resizeIcon.png")', 'url("My Notes/Pictures/Light Theme/editIcon.png")', 'url("My Notes/Pictures/Light Theme/pinIcon.png")', 'url("My Notes/Pictures/Light Theme/pinnedIcon.png")']
+ 
       const setTheme = e => {
         const root = document.querySelector(':root');
         for(let w = 0; w<properties.length; w++){
           root.style.setProperty(properties[w], theme==='dark'?dark[w]:light[w]);
         }
-        document.querySelector('.HeaderIMG').src = theme==='dark'?'MyNotes/Pictures/Dark Theme/HeaderFile.png':'MyNotes/Pictures/Light Theme/HeaderFile.png';
+        document.querySelector('.HeaderIMG').src = theme==='dark'?'My Notes/Pictures/Dark Theme/HeaderFile.png':'My Notes/Pictures/Light Theme/HeaderFile.png';
       }
 
       themeBtn.addEventListener('click', e => {
@@ -565,7 +565,7 @@ html{
         const darkBtn = div();
         darkBtn.classList.add('themeBtns');
         darkBtn.innerHTML = `
-          <img src='MyNotes/Pictures/Dark Theme/Theme.png' height='130px' width='100%'><br>
+          <img src='My Notes/Pictures/Dark Theme/Theme.png' height='130px' width='100%'><br>
           Dark Theme
         `;
         darkBtn.addEventListener('click', e=>{
@@ -577,7 +577,7 @@ html{
         const lightBtn = div();
         lightBtn.classList.add('themeBtns');
         lightBtn.innerHTML = `
-          <img src='MyNotes/Pictures/Light Theme/Theme.png' height='130px' width='100%'><br>
+          <img src='My Notes/Pictures/Light Theme/Theme.png' height='130px' width='100%'><br>
           Light Theme
         `;
         lightBtn.addEventListener('click', e=>{
@@ -868,7 +868,7 @@ html{
 
       footerPosition();
       ANBtn.addEventListener("click", e=>noteAdder(e, '', false, 1, '', activeList, true));
-      document.head.lastElementChild.setAttribute('href', window.matchMedia('(prefers-color-scheme: dark)').matches?'MyNotes/Pictures/Light Theme/HeaderFile.png':'MyNotes/Pictures/Dark Theme/HeaderFile.png');
+      document.head.lastElementChild.setAttribute('href', window.matchMedia('(prefers-color-scheme: dark)').matches?'My Notes/Pictures/Light Theme/HeaderFile.png':'My Notes/Pictures/Dark Theme/HeaderFile.png');
     </script>
   </body>
 </html>
