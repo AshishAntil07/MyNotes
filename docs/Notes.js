@@ -451,12 +451,12 @@ function noteAdder(e, note, isPinned, size, title, list, mustPushed){
 
   const textArea = document.createElement('textarea');
   textArea.classList.add('noteTextTaker');
-  note===''?null:textArea.style.display='none';
+  !note?null:textArea.style.display='none';
   textArea.value=note;
 
   const ReadOnlyDiv = div();
   ReadOnlyDiv.classList.add('noteText');
-  note===''?null:ReadOnlyDiv.style.display='block';
+  !note?null:ReadOnlyDiv.style.display='block';
   ReadOnlyDiv.innerHTML=note.replaceAll('\n', '<br>').replaceAll(' ', '&nbsp;');
 
   const titleDiv = div();
@@ -466,20 +466,16 @@ function noteAdder(e, note, isPinned, size, title, list, mustPushed){
   Note.append(titleDiv, operations, textArea, ReadOnlyDiv);
   Note.listener = e=>textSaver(Note);
   !lists[list]? lists[list] = []:0;
-  mustPushed && note===''? lists[list].unshift(noteArea): mustPushed? lists[list].push(noteArea):0;
+  mustPushed && !note? lists[list].unshift(noteArea): mustPushed? lists[list].push(noteArea):0;
   updateLocalStorage();
-  if(list === activeList){
-    isPinned ? pinned.append(noteArea) : note==='' ?nonPinned.prepend(noteArea):nonPinned.append(noteArea)
-  }
-  note==='' ? editFunc(Note) : 0;
-  note!=='' ? resizeFunc(Note, Note.size):0;
+  if(list === activeList) isPinned ? pinned.append(noteArea) : !note ?nonPinned.prepend(noteArea):nonPinned.append(noteArea)
+  !note ? editFunc(Note) : 0;
+  note ? resizeFunc(Note, Note.size) : 0;
 
   footerPosition();
 };
 if(fullNotes){
-  for(i=0; i < gotNotes.length; i++){
-    noteAdder(null, Object.values(fullNotes)[i][0], Object.values(fullNotes)[i][1], Object.values(fullNotes)[i][2], Object.values(fullNotes)[i][3], Object.values(fullNotes)[i][4], true)
-  }
+  for(i=0; i < gotNotes.length; i++) noteAdder(null, Object.values(fullNotes)[i][0], Object.values(fullNotes)[i][1], Object.values(fullNotes)[i][2], Object.values(fullNotes)[i][3], Object.values(fullNotes)[i][4], true)
 }
 
 footerPosition();
