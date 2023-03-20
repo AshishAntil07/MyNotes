@@ -161,8 +161,8 @@ themeBtn.innerHTML = str('Theme');
 themeBtn.classList.add('button');
 
 const properties = ['--primary', '--secondary', '--primary-light', '--primary-lighter', '--text-color', '--button', '--copyImage', '--deleteImage', '--resizeImage', '--editImage', '--pinImage', '--pinnedImage']
-const dark = ['#101820', '#FEE715', '#1b2530', '#455d77', 'white', '#101820d7', 'url("Pictures/Dark Theme/copyIcon.png")', 'url("Pictures/Dark Theme/deleteIcon.png")', 'url("Pictures/Dark Theme/resizeIcon.png")', 'url("Pictures/Dark Theme/editIcon.png")', 'url("Pictures/Dark Theme/pinIcon.png")', 'url("Pictures/Dark Theme/pinnedIcon.png")']
-const light = ['rgb(235, 235, 235)', '#222f38', '#f2f2ed', 'lightgray', 'black', '#d3d3cc', 'url("Pictures/Light Theme/copyIcon.png")', 'url("Pictures/Light Theme/deleteIcon.png")', 'url("Pictures/Light Theme/resizeIcon.png")', 'url("Pictures/Light Theme/editIcon.png")', 'url("Pictures/Light Theme/pinIcon.png")', 'url("Pictures/Light Theme/pinnedIcon.png")']
+const dark = ['#101820', '#FEE715', '#1b2530', '#455d77', 'white', '#101820d7', 'url("Pictures/Dark Theme/CopyIcon.png")', 'url("Pictures/Dark Theme/DeleteIcon.png")', 'url("Pictures/Dark Theme/ResizeIcon.png")', 'url("Pictures/Dark Theme/EditIcon.png")', 'url("Pictures/Dark Theme/PinIcon.png")', 'url("Pictures/Dark Theme/PinnedIcon.png")']
+const light = ['rgb(235, 235, 235)', '#222f38', '#f2f2ed', 'lightgray', 'black', '#d3d3cc', 'url("Pictures/Light Theme/CopyIcon.png")', 'url("Pictures/Light Theme/DeleteIcon.png")', 'url("Pictures/Light Theme/ResizeIcon.png")', 'url("Pictures/Light Theme/EditIcon.png")', 'url("Pictures/Light Theme/PinIcon.png")', 'url("Pictures/Light Theme/PinnedIcon.png")']
 
 const setTheme = e => {
   const root = document.querySelector(':root');
