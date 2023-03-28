@@ -14,13 +14,13 @@ Here's an amazing clone of Google Keep for you to keep your notes.
 ## 👁 Preview :
 ### Dark Theme :
 <div>
-  <img src = 'https://github.com/AshishAntil07/MyNotes/blob/main/My%20Notes/Pictures/Dark%20Theme/Theme.png'>
+  <img src = 'https://github.com/AshishAntil07/MyNotes/blob/main/docs/Pictures/Dark%20Theme/Theme.png'>
 </div>
 <br>
 
 ### Light Theme :
 <div>
-  <img src = 'https://github.com/AshishAntil07/MyNotes/blob/main/My%20Notes/Pictures/Light%20Theme/Theme.png'>
+  <img src = 'https://github.com/AshishAntil07/MyNotes/blob/main/docs/Pictures/Light%20Theme/Theme.png'>
 </div>
 <br>
 
